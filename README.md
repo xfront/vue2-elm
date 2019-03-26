@@ -33,7 +33,7 @@ cd vue2-elm
 
 npm install 或 yarn(推荐)
 
-npm run dev
+tns run android --bundle --sdk 26
 
 ```
 ## 关于接口数据

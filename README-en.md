@@ -34,7 +34,7 @@ cd vue2-elm
 
 npm install
 
-npm run dev
+tns run android --bundle --sdk 26
 
 ```
 
