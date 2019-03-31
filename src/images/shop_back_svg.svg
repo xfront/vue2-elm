@@ -1,47 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-    style="background:#fff" viewBox="0 0 1080 1693">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background:#fff" viewBox="0 0 1080 1693">
     <defs>
         <path id="b" d="M1 0h216v1148H1z" />
         <filter id="a" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
             <feOffset dx="1" in="SourceAlpha" result="shadowOffsetOuter1" />
-            <feColorMatrix in="shadowOffsetOuter1"
-                values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
         </filter>
         <path id="d" d="M0 0h215v147.276H0z" />
         <filter id="c" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
             <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
-            <feColorMatrix in="shadowOffsetOuter1"
-                values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
         </filter>
         <path id="f" d="M0 0h215v147.276H0z" />
         <filter id="e" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
             <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
-            <feColorMatrix in="shadowOffsetOuter1"
-                values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
         </filter>
         <path id="h" d="M0 0h215v147.276H0z" />
         <filter id="g" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
             <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
-            <feColorMatrix in="shadowOffsetOuter1"
-                values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
         </filter>
         <path id="j" d="M0 0h215v147.276H0z" />
         <filter id="i" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
             <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
-            <feColorMatrix in="shadowOffsetOuter1"
-                values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
         </filter>
         <path id="l" d="M0 0h215v147.276H0z" />
         <filter id="k" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
             <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
-            <feColorMatrix in="shadowOffsetOuter1"
-                values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
         </filter>
         <path id="n" d="M0 0h215v147.276H0z" />
         <filter id="m" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
             <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
-            <feColorMatrix in="shadowOffsetOuter1"
-                values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
         </filter>
         <rect id="o" width="168" height="158.605" rx="12" />
         <rect id="p" width="168" height="158.605" rx="12" />
@@ -51,8 +43,7 @@
         <path id="u" d="M0 0h1080v131.04H0z" />
         <filter id="t" width="200%" height="200%" x="-50%" y="-50%" filterUnits="objectBoundingBox">
             <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1" />
-            <feColorMatrix in="shadowOffsetOuter1"
-                values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
+            <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 0 0.933333333 0 0 0 1 0" />
         </filter>
         <path id="v" d="M0 0h1080v375.8H0z" />
     </defs>
@@ -166,8 +157,7 @@
             <path fill="#F6F6F6"
                 d="M244.77 102.24h600v50.4h-600zM244.77 172.8h500v37.44h-500zM244.77 233.28h704v38.185h-704zM28.8 315.36h990v33.12h-990z"
                 mask="url(#w)" />
-            <rect width="187.2" height="187.2" x="28.8" y="102.24" fill="#F6F6F6" mask="url(#w)"
-                rx="6" />
+            <rect width="187.2" height="187.2" x="28.8" y="102.24" fill="#F6F6F6" mask="url(#w)" rx="6" />
         </g>
     </g>
 </svg>
