@@ -24,7 +24,7 @@
             ability to customize the markup based on whether the user is on a phone or tablet. The markup below
             is the UI that tablet users see, and the markup in DetailPage below is the markup that
             phone users see. -->
-            <StackLayout col="1" class="p-20" >
+            <StackLayout col="1" class="p-20">
                 <Label class="h1 m-b-10" :text="selected.name"></Label>
                 <Image height="200" :src="selected.src" class="thumb img-circle"></Image>
                 <Label class="body" textWrap="true" :text="selected.description"></Label>
@@ -38,17 +38,17 @@
 
     export default {
         data() {
-            return { pokemon: pokemon, selected: {} };
+            return {pokemon: pokemon, selected: {}};
         },
         methods: {
-            select: function(event) {
+            select: function (event) {
                 // Update the selected instance variable for tablet users
                 const selected = pokemon[event.index];
                 this.selected = selected;
             },
             refreshList(args) {
                 var pullRefresh = args.object;
-                setTimeout(function() {
+                setTimeout(function () {
                     pullRefresh.refreshing = false;
                 }, 1000);
             }
