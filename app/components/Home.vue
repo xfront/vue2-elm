@@ -154,7 +154,7 @@
                 <GridLayout rows="*" columns="*,*,*,*,*">
                     <Image col="0" row="0" @tap="onButtonTap()" height="25" width="25" margin="10"
                            src="~/assets/images/shape2@3x.png"></Image>
-                    <Image col="1" row="0" (tap)="onButtonTap()" height="25" width="25" margin="10"
+                    <Image col="1" row="0" @tap="showFood()" height="25" width="25" margin="10"
                            src="~/assets/images/shape1@3x.png"></Image>
                     <Image col="2" row="0" (tap)="onButtonTap()" height="60" width="60" margin="10"
                            src="~/assets/images/home@3x.png"></Image>
@@ -172,6 +172,7 @@
     import * as imagepicker from "nativescript-imagepicker";
 
     import Details from "./Details";
+    import Food from "./Food";
 
     export default {
         computed: {},
@@ -181,6 +182,16 @@
             return {};
         },
         methods: {
+            showFood() {
+                this.$navigateTo(Food, {
+                    animated: true,
+                    transition: {
+                        name: "slideLeft",
+                        duration: 250,
+                        curve: "easeIn"
+                    }
+                });
+            },
             onButtonTap() {
                 let context = imagepicker.create({
                     mode: "single" // use "multiple" for multiple selection
