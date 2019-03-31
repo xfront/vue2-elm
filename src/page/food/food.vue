@@ -336,7 +336,7 @@
                 } else {
                     node = event.target;
                 }
-                this.sortByType = node.getAttribute("data");
+                this.sortByType = node.getAttribute("food.js");
                 this.sortBy = "";
             },
             //筛选选项中的配送方式选择

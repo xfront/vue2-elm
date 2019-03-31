@@ -1,5 +1,9 @@
 import Vue from "nativescript-vue";
 
+Vue.registerElement(
+    'PullToRefresh',
+    () => require('nativescript-pulltorefresh').PullToRefresh
+);
 Vue.registerElement("Video", () => require("nativescript-exoplayer").Video);
 
 import Vuex from 'vuex'

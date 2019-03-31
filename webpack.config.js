@@ -135,6 +135,7 @@ module.exports = env => {
                         output: {
                             comments: false,
                         },
+                        //mangle: { reserved: [ ...nsWebpack.uglifyMangleExcludes, "TNS_SwipeRefreshListener" ] },
                         compress: {
                             // The Android SBG has problems parsing the output
                             // when these options are enabled
