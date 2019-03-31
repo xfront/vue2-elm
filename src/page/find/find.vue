@@ -1,4 +1,4 @@
- <template>
+<template>
     <div class="rating_page">
         <head-top head-title="发现" go-back='true'></head-top>
         <section>发现</section>
@@ -12,12 +12,10 @@
     import footGuide from 'src/components/footer/footGuide'
 
     export default {
-      data(){
-            return{
-    
-            }
+        data() {
+            return {}
         },
-        created(){
+        created() {
 
         },
         mixins: [getImgPath],
@@ -25,17 +23,15 @@
             headTop,
             footGuide,
         },
-        props:[],
-        methods: {
-            
-        }
+        props: [],
+        methods: {}
     }
 </script>
-  
+
 <style lang="scss" scoped>
     @import 'src/style/mixin';
-  
-    .rating_page{
+
+    .rating_page {
         position: absolute;
         top: 0;
         left: 0;
@@ -44,9 +40,10 @@
         background-color: #fff;
         z-index: 202;
         padding-top: 1.95rem;
-        p, span{
-            font-family: Helvetica Neue,Tahoma,Arial;
+
+        p, span {
+            font-family: Helvetica Neue, Tahoma, Arial;
         }
     }
-    
+
 </style>

@@ -1,5 +1,5 @@
- <template>
-  <div class="page">
+<template>
+    <div class="page">
         <head-top head-title="推荐有奖" go-back='true'></head-top>
         <section class="activity_banner">
             <img src="../../../images/activity.png">
@@ -33,7 +33,8 @@
             <img src="../../../images/qianbao.png">
             <p>还不赶紧去邀请好友</p>
         </section>
-        <alert-tip v-if="showAlert" @closeTip="showAlert = false" :alertText="alertText"></alert-tip>
+        <alert-tip v-if="showAlert" @closeTip="showAlert = false"
+                   :alertText="alertText"></alert-tip>
     </div>
 </template>
 
@@ -44,14 +45,14 @@
     import alertTip from 'src/components/common/alertTip'
 
     export default {
-      data(){
-            return{
+        data() {
+            return {
                 showAlert: false,
                 alertText: null,
             }
         },
-        mounted(){
-            
+        mounted() {
+
         },
         components: {
             headTop,
@@ -63,18 +64,18 @@
             ]),
         },
         methods: {
-            fenxiang(){
+            fenxiang() {
                 this.showAlert = true;
                 this.alertText = '请在饿了么APP中打开';
             }
         }
     }
 </script>
-  
+
 <style lang="scss" scoped>
     @import 'src/style/mixin';
-  
-    .page{
+
+    .page {
         position: fixed;
         top: 0;
         left: 0;
@@ -84,65 +85,81 @@
         padding-top: 1.95rem;
         z-index: 203;
         background-color: #f5f5f5;
-        p, span{
-            font-family: Helvetica Neue,Tahoma,Arial;
+
+        p, span {
+            font-family: Helvetica Neue, Tahoma, Arial;
         }
     }
-    .activity_banner{
-        img{
+
+    .activity_banner {
+        img {
             @include wh(100%, 10rem);
         }
     }
-    .invite_firend{
+
+    .invite_firend {
         display: flex;
         padding: 1rem 0;
         background-color: #fff;
-        .invite_firend_style{
+
+        .invite_firend_style {
             flex: 1;
             text-align: center;
-            img{
+
+            img {
                 @include wh(2.5rem, 2.5rem);
             }
-            p{
+
+            p {
                 @include sc(.5rem, #333);
             }
         }
     }
-    .invite_num{
+
+    .invite_num {
         display: flex;
         margin-top: 1rem;
         @include sc(.5rem, #666);
-        .invite_num_style{
+
+        .invite_num_style {
             flex: 1;
             text-align: center;
-            p{
+
+            p {
                 color: #666;
             }
-            span{
+
+            span {
                 @include sc(.8rem, #ff5633);
                 font-weight: bold;
             }
         }
-        .invite_people{
+
+        .invite_people {
             border-left: 0.025rem solid #ddd;
-            span{
+
+            span {
                 @include sc(.8rem, #666);
                 font-weight: bold;
             }
         }
     }
-    .income_detail{
+
+    .income_detail {
         text-align: center;
         margin-top: 1rem;
         @include sc(.5rem, #666);
     }
-    .incom_tips{
+
+    .incom_tips {
         text-align: center;
         margin-top: 1rem;
-        img{
+
+        img {
             @include wh(1.3rem, 1.6rem);
         }
-        p{
+
+        p {
             @include sc(.5rem, #999);
         }
     }

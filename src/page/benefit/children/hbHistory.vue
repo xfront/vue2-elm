@@ -1,5 +1,5 @@
- <template>
-  <div class="rating_page">
+<template>
+    <div class="rating_page">
         <head-top head-title="历史红包" go-back='true'></head-top>
         <section v-if="!showLoading" id="scroll_section" class="scroll_container">
             <ul class="hongbao_list_ul">
@@ -37,17 +37,17 @@
     import {getExpired} from 'src/service/getData'
     import loading from 'src/components/common/loading'
     import BScroll from 'better-scroll'
-    
+
     export default {
-      data(){
-            return{
+        data() {
+            return {
                 showAlert: false,
                 alertText: null,
                 showLoading: true,
                 expiredList: null, //历史红包列表
             }
         },
-        mounted(){
+        mounted() {
             this.initData();
         },
         components: {
@@ -63,34 +63,34 @@
             ...mapMutations([
                 'CLEAR_CART'
             ]),
-            async initData(){
+            async initData() {
                 //获取历史红包
                 if (this.userInfo) {
                     this.expiredList = await getExpired(this.userInfo.user_id);
                     this.showLoading = false;
                     this.$nextTick(() => {
-                        new BScroll('#scroll_section', {  
+                        new BScroll('#scroll_section', {
                             deceleration: 0.001,
                             bounce: true,
                             swipeTime: 1800,
                             click: true,
-                        }); 
+                        });
                     })
                 }
             }
         },
         watch: {
-            userInfo: function (value){
+            userInfo: function (value) {
                 this.initData();
             }
         }
     }
 </script>
-  
+
 <style lang="scss" scoped>
     @import 'src/style/mixin';
-  
-    .rating_page{
+
+    .rating_page {
         position: fixed;
         top: 0;
         left: 0;
@@ -99,11 +99,13 @@
         padding-top: 1.95rem;
         z-index: 203;
         background-color: #f1f1f1;
-        p, span{
-            font-family: Helvetica Neue,Tahoma,Arial;
+
+        p, span {
+            font-family: Helvetica Neue, Tahoma, Arial;
         }
     }
-    .scroll_container{
+
+    .scroll_container {
         position: fixed;
         top: 0;
         left: 0;
@@ -111,62 +113,76 @@
         bottom: 0;
         padding-top: 1.95rem;
     }
-    .hongbao_list_ul{
+
+    .hongbao_list_ul {
         padding: 1rem .5rem;
-        .hongbao_list_li{
-            background: #fff url(../../../images/expired.png) repeat-x ;
+
+        .hongbao_list_li {
+            background: #fff url(../../../images/expired.png) repeat-x;
             background-size: .5rem .2rem;
             margin-bottom: 0.5rem;
             border-radius: 0.25rem;
             position: relative;
-            .list_item{
+
+            .list_item {
                 @include fj;
                 padding: 1rem 0.5rem .8rem;
-                .list_item_left{
+
+                .list_item_left {
                     font-size: 0;
                     border-right: 0.025rem dotted #ccc;
                     flex: 1;
-                    span:nth-of-type(1){
+
+                    span:nth-of-type(1) {
                         @include sc(.75rem, #ccc);
                         font-weight: bold;
                     }
-                    span:nth-of-type(2){
+
+                    span:nth-of-type(2) {
                         @include sc(2rem, #ccc);
                     }
-                    span:nth-of-type(3), span:nth-of-type(4){
+
+                    span:nth-of-type(3), span:nth-of-type(4) {
                         @include sc(1rem, #ccc);
                         font-weight: bold;
                     }
-                    p{
+
+                    p {
                         @include sc(0.4rem, #999);
                     }
                 }
-                .list_item_right{
+
+                .list_item_right {
                     flex: 2;
                     margin-left: 1.5rem;
-                    h4{
+
+                    h4 {
                         @include sc(.7rem, #666);
                         margin-left: -.7rem;
                     }
-                    p{
+
+                    p {
                         list-style-type: disc;
                         margin-left: -.7rem;
-                        @include sc(.4rem, #999);   
+                        @include sc(.4rem, #999);
                     }
                 }
             }
-            .list_item_footer{
+
+            .list_item_footer {
                 background-color: #f9f9f9;
                 padding: .4rem .4rem;
                 border-bottom-left-radius: 0.25rem;
                 border-bottom-right-radius: 0.25rem;
-                p{
+
+                p {
                     list-style-type: disc;
                     @include sc(.4rem, #999);
                     margin-left: .4rem;
                 }
             }
-            .expired{
+
+            .expired {
                 fill: #ddd;
                 @include wh(3rem, 3rem);
                 top: .6rem;

@@ -1,9 +1,10 @@
- <template>
+<template>
     <div class="search_address_page">
         <section>
             <head-top head-title="搜索" go-back='true'></head-top>
             <form class="search_form">
-                <input type="search" name="search" placeholder="请输入小区/写字楼/学校等" v-model="searchValue">
+                <input type="search" name="search" placeholder="请输入小区/写字楼/学校等"
+                       v-model="searchValue">
                 <button @click.prevent="searchPlace()">搜索</button>
             </form>
             <ul class="address_list" v-if="searchData">
@@ -27,28 +28,28 @@
     import {mapMutations} from 'vuex'
 
     export default {
-      data(){
-            return{
-               	searchValue: null, //输入的搜索内容
+        data() {
+            return {
+                searchValue: null, //输入的搜索内容
                 searchData: null, //搜索的结果
             }
         },
         components: {
             headTop,
         },
-        props:[],
+        props: [],
         methods: {
             ...mapMutations([
                 'CHOOSE_SEARCH_ADDRESS'
             ]),
             //搜索
-            async searchPlace(){
+            async searchPlace() {
                 if (this.searchValue) {
                     this.searchData = await searchNearby(this.searchValue);
                 }
             },
             //选择搜素结果
-            choooedAddress(item){
+            choooedAddress(item) {
                 this.CHOOSE_SEARCH_ADDRESS(item);
                 this.$router.go(-1);
             },
@@ -56,11 +57,11 @@
         }
     }
 </script>
-  
+
 <style lang="scss" scoped>
     @import 'src/style/mixin';
-  
-    .search_address_page{
+
+    .search_address_page {
         position: fixed;
         top: 0;
         left: 0;
@@ -70,14 +71,17 @@
         z-index: 204;
         overflow-y: auto;
         padding-top: 1.95rem;
-        p, span{
-            font-family: Helvetica Neue,Tahoma,Arial;
+
+        p, span {
+            font-family: Helvetica Neue, Tahoma, Arial;
         }
     }
-    .search_form{
+
+    .search_form {
         display: flex;
         padding: .7rem;
-        input{
+
+        input {
             @include sc(.65rem, #999);
             flex: 4;
             background-color: #f1f1f1;
@@ -86,31 +90,38 @@
             border-radius: 0.15rem;
             padding: 0 .4rem;
         }
-        button{
+
+        button {
             flex: 1;
             @include sc(.65rem, #fff);
             background-color: $blue;
             border-radius: 0.15rem;
         }
     }
-    .address_list{
+
+    .address_list {
         padding: .7rem;
-        li{
+
+        li {
             padding: .7rem 0;
             border-bottom: 0.025rem solid #f5f5f5;
             line-height: 1rem;
-            h4{
+
+            h4 {
                 @include sc(.75rem, #555);
             }
-            p{
+
+            p {
                 @include sc(.65rem, #999);
             }
         }
     }
-    .empty_tips{
+
+    .empty_tips {
         @include center;
         width: 100%;
-        p{
+
+        p {
             @include sc(.5rem, #aaa);
             line-height: .7rem;
             text-align: center;

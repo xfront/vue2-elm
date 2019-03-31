@@ -3,21 +3,24 @@
         <head-top head-title="重置密码" goBack="true"></head-top>
         <form class="restForm">
             <section class="input_container phone_number">
-                <input type="text" placeholder="账号" name="phone" maxlength="11" v-model="phoneNumber" @input="inputPhone">
+                <input type="text" placeholder="账号" name="phone" maxlength="11"
+                       v-model="phoneNumber" @input="inputPhone">
                 <!-- <button @click.prevent="getVerifyCode" :class="{right_phone_number:rightPhoneNumber}" v-show="!computedTime">获取验证码</button>
                 <button  @click.prevent v-show="computedTime">已发送({{computedTime}}s)</button> -->
             </section>
-             <section class="input_container">
+            <section class="input_container">
                 <input type="text" placeholder="旧密码" name="oldPassWord" v-model="oldPassWord">
             </section>
             <section class="input_container">
                 <input type="text" placeholder="请输入新密码" name="newPassWord" v-model="newPassWord">
             </section>
             <section class="input_container">
-                <input type="text" placeholder="请确认密码" name="confirmPassWord" v-model="confirmPassWord">
+                <input type="text" placeholder="请确认密码" name="confirmPassWord"
+                       v-model="confirmPassWord">
             </section>
             <section class="input_container captcha_code_container">
-                <input type="text" placeholder="验证码" name="mobileCode" maxlength="6" v-model="mobileCode">
+                <input type="text" placeholder="验证码" name="mobileCode" maxlength="6"
+                       v-model="mobileCode">
                 <div class="img_change_img">
                     <img v-show="captchaCodeImg" :src="captchaCodeImg">
                     <div class="change_img" @click="getCaptchaCode">
@@ -28,17 +31,24 @@
             </section>
         </form>
         <div class="login_container" @click="resetButton">确认修改</div>
-        <alert-tip v-if="showAlert" :showHide="showAlert" @closeTip="closeTip" :alertText="alertText"></alert-tip>
+        <alert-tip v-if="showAlert" :showHide="showAlert" @closeTip="closeTip"
+                   :alertText="alertText"></alert-tip>
     </div>
 </template>
 
 <script>
     import headTop from 'src/components/header/head'
     import alertTip from 'src/components/common/alertTip'
-    import {mobileCode, checkExsis, sendMobile, getcaptchas, changePassword} from 'src/service/getData'
+    import {
+        mobileCode,
+        checkExsis,
+        sendMobile,
+        getcaptchas,
+        changePassword
+    } from 'src/service/getData'
 
     export default {
-        data(){
+        data() {
             return {
                 phoneNumber: null, //电话号码
                 oldPassWord: null,
@@ -58,25 +68,25 @@
             headTop,
             alertTip,
         },
-        created(){
+        created() {
             this.getCaptchaCode()
         },
         methods: {
             //判断输入的电话号码
-            inputPhone(){
-                if(/.+/gi.test(this.phoneNumber)){
+            inputPhone() {
+                if (/.+/gi.test(this.phoneNumber)) {
                     this.rightPhoneNumber = true;
-                }else{
+                } else {
                     this.rightPhoneNumber = false;
                 }
             },
             //获取验证吗
-            async getVerifyCode(){
+            async getVerifyCode() {
                 if (this.rightPhoneNumber) {
                     this.computedTime = 30;
                     //倒计时
                     this.timer = setInterval(() => {
-                        this.computedTime --;
+                        this.computedTime--;
                         if (this.computedTime == 0) {
                             clearInterval(this.timer)
                         }
@@ -88,7 +98,7 @@
                         this.showAlert = true;
                         this.alertText = res.message;
                         return
-                    }else if(!res.is_exists) {
+                    } else if (!res.is_exists) {
                         this.showAlert = true;
                         this.alertText = '您输入的手机号尚未绑定';
                         return
@@ -103,33 +113,33 @@
                     this.validate_token = getCode.validate_token;
                 }
             },
-             async getCaptchaCode(){
+            async getCaptchaCode() {
                 let res = await getcaptchas();
                 this.captchaCodeImg = res.code;
             },
             //重置密码
-            async resetButton(){
+            async resetButton() {
                 if (!this.phoneNumber) {
                     this.showAlert = true;
                     this.alertText = '请输入正确的账号';
                     return
-                }else if(!this.oldPassWord){
+                } else if (!this.oldPassWord) {
                     this.showAlert = true;
                     this.alertText = '请输入旧密码';
                     return
-                }else if(!this.newPassWord){
+                } else if (!this.newPassWord) {
                     this.showAlert = true;
                     this.alertText = '请输入新密码';
                     return
-                }else if(!this.confirmPassWord){
+                } else if (!this.confirmPassWord) {
                     this.showAlert = true;
                     this.alertText = '请输确认密码';
                     return
-                }else if(this.newPassWord !== this.confirmPassWord){
+                } else if (this.newPassWord !== this.confirmPassWord) {
                     this.showAlert = true;
                     this.alertText = '两次输入的密码不一致';
                     return
-                }else if(!this.mobileCode){
+                } else if (!this.mobileCode) {
                     this.showAlert = true;
                     this.alertText = '请输验证码';
                     return
@@ -141,14 +151,14 @@
                     this.alertText = res.message;
                     this.getCaptchaCode()
                     return
-                }else{
+                } else {
                     this.showAlert = true;
                     this.alertText = '密码修改成功';
                 }
             },
-            closeTip(){
+            closeTip() {
                 this.showAlert = false;
-            }   
+            }
         }
     }
 
@@ -157,53 +167,65 @@
 <style lang="scss" scoped>
     @import 'src/style/mixin';
 
-    .restContainer{
+    .restContainer {
         padding-top: 1.95rem;
     }
-    .restForm{
+
+    .restForm {
         background-color: #fff;
         margin-top: .6rem;
-        .input_container{
+
+        .input_container {
             display: flex;
             justify-content: space-between;
             padding: .6rem .8rem;
             border-bottom: 1px solid #f1f1f1;
-            input{
+
+            input {
                 @include sc(.7rem, #666);
             }
-            button{
+
+            button {
                 @include sc(.65rem, #fff);
-                font-family: Helvetica Neue,Tahoma,Arial;
+                font-family: Helvetica Neue, Tahoma, Arial;
                 padding: .28rem .4rem;
                 border: 1px;
                 border-radius: 0.15rem;
             }
-            .right_phone_number{
+
+            .right_phone_number {
                 background-color: #4cd964;
             }
         }
-        .phone_number{
+
+        .phone_number {
             padding: .3rem .8rem;
         }
-        .captcha_code_container{
+
+        .captcha_code_container {
             height: 2.2rem;
-            .img_change_img{
+
+            .img_change_img {
                 display: flex;
                 align-items: center;
-                img{
+
+                img {
                     @include wh(3.5rem, 1.5rem);
                     margin-right: .2rem;
                 }
-                .change_img{
+
+                .change_img {
                     display: flex;
                     flex-direction: 'column';
                     flex-wrap: wrap;
                     width: 2rem;
                     justify-content: center;
-                    p{
+
+                    p {
                         @include sc(.55rem, #666);
                     }
-                    p:nth-of-type(2){
+
+                    p:nth-of-type(2) {
                         color: #3b95e9;
                         margin-top: .2rem;
                     }
@@ -211,32 +233,39 @@
             }
         }
     }
-    .captcha_code_container{
+
+    .captcha_code_container {
         height: 2.2rem;
-        .img_change_img{
+
+        .img_change_img {
             display: flex;
             align-items: center;
-            img{
+
+            img {
                 @include wh(3.5rem, 1.5rem);
                 margin-right: .2rem;
             }
-            .change_img{
+
+            .change_img {
                 display: flex;
                 flex-direction: 'column';
                 flex-wrap: wrap;
                 width: 2rem;
                 justify-content: center;
-                p{
+
+                p {
                     @include sc(.55rem, #666);
                 }
-                p:nth-of-type(2){
+
+                p:nth-of-type(2) {
                     color: #3b95e9;
                     margin-top: .2rem;
                 }
             }
         }
     }
-    .login_container{
+
+    .login_container {
         margin: 1rem .5rem;
         @include sc(.7rem, #fff);
         background-color: #4cd964;

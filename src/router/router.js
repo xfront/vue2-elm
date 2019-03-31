@@ -47,8 +47,6 @@ const find = r => require.ensure([], () => r(require('../page/find/find')), 'fin
 const download = r => require.ensure([], () => r(require('../page/download/download')), 'download')
 
 
-
-
 export default [{
     path: '/',
     component: App, //顶层路由，对应index.html
@@ -72,7 +70,7 @@ export default [{
         {
             path: '/msite',
             component: msite,
-            meta: { keepAlive: true },
+            meta: {keepAlive: true},
         },
         //特色商铺列表页
         {
@@ -97,7 +95,7 @@ export default [{
                 children: [{
                     path: 'shopSafe', //商铺安全认证页
                     component: shopSafe,
-                }, ]
+                },]
             }]
         },
         //确认订单页
@@ -126,8 +124,8 @@ export default [{
                         path: 'searchAddress', //搜索地址
                         component: searchAddress,
                     }]
-                }, ]
-            }, ]
+                },]
+            },]
         },
         //登录注册页
         {
@@ -144,23 +142,23 @@ export default [{
                 children: [{
                     path: 'setusername',
                     component: setusername,
-                },{
+                }, {
                     path: 'address',
                     component: address,     //编辑地址
-                    children:[{
-                        path:'add',
-                        component:add,
-                        children:[{
-                            path:'addDetail',
-                            component:addDetail
+                    children: [{
+                        path: 'add',
+                        component: add,
+                        children: [{
+                            path: 'addDetail',
+                            component: addDetail
                         }]
                     }]
                 }]
             },
-            {
-                path: 'service', //服务中心
-                component: service,
-            },]
+                {
+                    path: 'service', //服务中心
+                    component: service,
+                },]
         },
         //修改密码页
         {
@@ -174,7 +172,7 @@ export default [{
             children: [{
                 path: 'orderDetail', //订单详情页
                 component: orderDetail,
-            }, ]
+            },]
         },
         //vip卡页
         {
@@ -205,10 +203,10 @@ export default [{
         {
             path: '/service',
             component: service,
-             children: [{
+            children: [{
                 path: 'questionDetail', //订单详情页
                 component: questionDetail,
-            }, ]
+            },]
         },
         //余额
         {
@@ -217,7 +215,7 @@ export default [{
             children: [{
                 path: 'detail', //余额说明
                 component: balanceDetail,
-            }, ]
+            },]
         },
         //我的优惠页
         {
@@ -247,7 +245,7 @@ export default [{
             children: [{
                 path: 'detail', //积分说明
                 component: pointsDetail,
-            }, ]
+            },]
         },
     ]
 }]

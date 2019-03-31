@@ -1,5 +1,5 @@
- <template>
-  <div class="page">
+<template>
+    <div class="page">
         <head-top head-title="代金券说明" go-back='true'></head-top>
         <div class="markdown">
             <h3 id="q1-">Q1: 什么是商家代金券？</h3>
@@ -27,21 +27,19 @@
     import loading from 'src/components/common/loading'
 
     export default {
-      data(){
-            return{
-               
-            }
+        data() {
+            return {}
         },
         components: {
             headTop,
         },
     }
 </script>
-  
+
 <style lang="scss" scoped>
     @import 'src/style/mixin';
-  
-    .page{
+
+    .page {
         position: fixed;
         top: 0;
         left: 0;
@@ -50,17 +48,21 @@
         padding-top: 1.95rem;
         z-index: 203;
         background-color: #fff;
-        p, span{
-            font-family: Helvetica Neue,Tahoma,Arial;
+
+        p, span {
+            font-family: Helvetica Neue, Tahoma, Arial;
         }
     }
-    .markdown{
+
+    .markdown {
         @include sc(.6rem, #666);
         padding: 0 0.5rem 0.5rem;
-        h3{
+
+        h3 {
             line-height: 2rem;
         }
-        p,li{
+
+        p, li {
             @include sc(.6rem, #666);
             line-height: 1rem;
         }

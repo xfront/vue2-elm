@@ -1,11 +1,11 @@
- <template>
-  <div class="page_container">
+<template>
+    <div class="page_container">
         <head-top head-title="我的优惠" go-back='true'></head-top>
         <div class="markdown">
             <blockquote>
                 <p>尊敬的用户，随着会员体系逐渐完善，自2016年10月10日起，饿了么会员权益将做如下优化：
-                购卡后31天内，累积享有30单减免配送费服务（每日最多3单，每单最高减免4元）。
-                注：已购买的会员服务不受影响，当前会员服务失效前无法购买新卡。</p>
+                    购卡后31天内，累积享有30单减免配送费服务（每日最多3单，每单最高减免4元）。
+                    注：已购买的会员服务不受影响，当前会员服务失效前无法购买新卡。</p>
             </blockquote>
             <h3 id="q1-">Q1: 特权介绍</h3>
             <ul>
@@ -42,17 +42,15 @@
     import {getOrderList} from 'src/service/getData'
 
     export default {
-      data(){
-            return{
-    
-            }
+        data() {
+            return {}
         },
-        mounted(){
+        mounted() {
 
         },
         computed: {
             ...mapState([
-                'userInfo', 
+                'userInfo',
             ]),
         },
         components: {
@@ -65,11 +63,11 @@
         }
     }
 </script>
-  
+
 <style lang="scss" scoped>
     @import 'src/style/mixin';
-  
-    .page_container{
+
+    .page_container {
         position: fixed;
         top: 0;
         left: 0;
@@ -82,10 +80,12 @@
         color: #999;
         font-size: .6rem;
         padding: 2rem .7rem 0;
-        p, span{
-            font-family: Helvetica Neue,Tahoma,Arial;
+
+        p, span {
+            font-family: Helvetica Neue, Tahoma, Arial;
         }
     }
+
     .markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5 {
         margin-top: 0.666667rem;
         margin-bottom: 0.2rem;
@@ -93,8 +93,9 @@
         font-weight: 600;
         color: #333;
     }
+
     .markdown ul {
-        li{
+        li {
             color: #666;
             margin-bottom: .2rem;
         }

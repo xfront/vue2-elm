@@ -1,5 +1,5 @@
- <template>
-  <div class="order_detail_page">
+<template>
+    <div class="order_detail_page">
         <head-top head-title="订单详情" go-back='true'></head-top>
         <section v-if="!showLoading" id="scroll_section" class="scroll_container">
             <section class="scroll_insert">
@@ -7,16 +7,21 @@
                     <img :src="imgBaseUrl + orderDetail.restaurant_image_url">
                     <p>{{orderDetail.status_bar.title}}</p>
                     <p>{{orderDetail.timeline_node.description}}</p>
-                    <router-link class="order_again" :to="{path: '/shop', query: {geohash, id: orderDetail.restaurant_id}}">再来一单</router-link>
+                    <router-link class="order_again"
+                                 :to="{path: '/shop', query: {geohash, id: orderDetail.restaurant_id}}">
+                        再来一单
+                    </router-link>
                 </section>
                 <section class="food_list">
-                    <router-link class="food_list_header" :to="{path: '/shop', query: {geohash, id: orderDetail.restaurant_id}}">
+                    <router-link class="food_list_header"
+                                 :to="{path: '/shop', query: {geohash, id: orderDetail.restaurant_id}}">
                         <div class="shop_name">
                             <img :src="imgBaseUrl + orderDetail.restaurant_image_url">
                             <span>{{orderDetail.restaurant_name}}</span>
                         </div>
                         <svg fill="#333" class="arrow_right">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-right"></use>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xlink:href="#arrow-right"></use>
                         </svg>
                     </router-link>
                     <ul class="food_list_ul">
@@ -30,7 +35,7 @@
                     </ul>
                     <div class="deliver_fee">
                         <span>配送费</span>
-                        <span>{{orderDetail.basket.deliver_fee&&orderDetail.basket.deliver_fee.price || 0}}</span>   
+                        <span>{{orderDetail.basket.deliver_fee&&orderDetail.basket.deliver_fee.price || 0}}</span>
                     </div>
                     <div class="pay_ment">实付{{orderDetail.total_amount.toFixed(2)}}</div>
                 </section>
@@ -98,14 +103,14 @@
 
     export default {
 
-      data(){
-            return{
+        data() {
+            return {
                 showLoading: true, //显示加载动画
                 orderData: null,
                 imgBaseUrl
             }
         },
-        mounted(){
+        mounted() {
             this.initData();
         },
         mixins: [getImgPath],
@@ -119,17 +124,17 @@
             ]),
         },
         methods: {
-            async initData(){
+            async initData() {
                 if (this.userInfo && this.userInfo.user_id) {
                     this.orderData = await getOrderDetail(this.userInfo.user_id, this.orderDetail.unique_id);
                     this.showLoading = false;
                     this.$nextTick(() => {
-                        new BScroll('#scroll_section', {  
+                        new BScroll('#scroll_section', {
                             deceleration: 0.001,
                             bounce: true,
                             swipeTime: 1800,
                             click: true,
-                        }); 
+                        });
                     })
                 }
             },
@@ -143,11 +148,11 @@
         }
     }
 </script>
-  
+
 <style lang="scss" scoped>
     @import 'src/style/mixin';
-  
-    .order_detail_page{
+
+    .order_detail_page {
         position: fixed;
         top: 0;
         left: 0;
@@ -156,11 +161,13 @@
         background-color: #f1f1f1;
         z-index: 202;
         padding-top: 1.95rem;
-        p, span{
-            font-family: Helvetica Neue,Tahoma,Arial;
+
+        p, span {
+            font-family: Helvetica Neue, Tahoma, Arial;
         }
     }
-    .scroll_container{
+
+    .scroll_container {
         position: fixed;
         top: 0;
         left: 0;
@@ -168,33 +175,39 @@
         bottom: 0;
         padding-top: 1.95rem;
     }
-    .scroll_insert{
+
+    .scroll_insert {
         padding-bottom: 3rem;
     }
-    .order_titel{
+
+    .order_titel {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: .7rem;
         background-color: #fff;
         margin-bottom: 0.5rem;
-        img{
+
+        img {
             border: 0.05rem solid $blue;
             border-radius: 50%;
             @include wh(3rem, 3rem);
         }
-        p:nth-of-type(1){
+
+        p:nth-of-type(1) {
             @include sc(.9rem, #333);
             font-weight: bold;
             margin-top: .4rem;
         }
-        p:nth-of-type(2){
+
+        p:nth-of-type(2) {
             @include sc(.55rem, #999);
             width: 10rem;
             margin-top: .3rem;
             text-align: center;
         }
-        .order_again{
+
+        .order_again {
             @include sc(.6rem, $blue);
             margin-top: .5rem;
             border: 0.025rem solid $blue;
@@ -202,63 +215,76 @@
             border-radius: .1rem;
         }
     }
-    .food_list{
+
+    .food_list {
         background-color: #fff;
-        .food_list_header{
+
+        .food_list_header {
             @include fj;
             align-items: center;
             padding: .2rem .5rem;
             border-bottom: 1px solid #f5f5f5;
-            .shop_name{
-                img{
+
+            .shop_name {
+                img {
                     @include wh(1.2rem, 1.2rem);
                     vertical-align: middle;
                     margin-right: .2rem;
                 }
-                span{
+
+                span {
                     @include sc(.75rem, #333);
                     font-weight: bold;
                 }
             }
-            svg{
+
+            svg {
                 @include wh(.6rem, .6rem);
                 fill: #666;
             }
         }
-        .food_list_ul{
-            li{
+
+        .food_list_ul {
+            li {
                 @include fj;
                 align-items: center;
                 padding: 0 .5rem;
                 line-height: 2rem;
-                .food_name{
+
+                .food_name {
                     @include sc(.6rem, #666);
                     flex: 4;
                 }
-                .quantity_price{
+
+                .quantity_price {
                     flex: 1;
                     @include fj;
                     align-items: center;
-                    span:nth-of-type(1){
+
+                    span:nth-of-type(1) {
                         @include sc(.6rem, #ccc);
                     }
-                    span:nth-of-type(2){
+
+                    span:nth-of-type(2) {
                         @include sc(.6rem, #666);
                     }
                 }
             }
         }
-        .deliver_fee{
+
+        .deliver_fee {
             @include fj;
             align-items: center;
             padding: 0 .5rem;
             line-height: 2rem;
             border-top: 1px solid #f5f5f5;
-            span{
+
+            span {
                 @include sc(.6rem, #666);
             }
         }
-        .pay_ment{
+
+        .pay_ment {
             @include sc(.6rem, #fb6b23);
             border-top: 1px solid #f5f5f5;
             font-weight: bold;
@@ -267,28 +293,34 @@
             padding-right: .5rem;
         }
     }
-    .order_detail_style{
+
+    .order_detail_style {
         background-color: #fff;
         margin-top: 0.5rem;
-        header{
+
+        header {
             @include sc(.75rem, #333);
             padding: .5rem;
             border-bottom: 1px solid #f5f5f5;
         }
-        .item_style{
+
+        .item_style {
             display: flex;
             padding: .5rem;
-            p{
+
+            p {
                 @include sc(.65rem, #666);
                 line-height: 1rem;
             }
         }
     }
+
     .loading-enter-active, .loading-leave-active {
         transition: opacity .7s
     }
+
     .loading-enter, .loading-leave-active {
         opacity: 0
     }
-    
+
 </style>

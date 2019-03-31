@@ -1,5 +1,5 @@
- <template>
-  <div class="detail_page">
+<template>
+    <div class="detail_page">
         <head-top :head-title="question.title" go-back='true'></head-top>
         <section id="scroll_section" class="scroll_container">
             <section v-html="markdownText" class="markdown"></section>
@@ -14,44 +14,40 @@
     import BScroll from 'better-scroll'
 
     export default {
-      data(){
-            return{
-    			
-            }
+        data() {
+            return {}
         },
         components: {
             headTop,
         },
-        mounted(){
+        mounted() {
             this.$nextTick(() => {
-                new BScroll('#scroll_section', {  
+                new BScroll('#scroll_section', {
                     deceleration: 0.001,
                     bounce: true,
                     swipeTime: 1800,
                     click: true,
-                }); 
+                });
             })
         },
         computed: {
-        	...mapState([
-	            'question', 
-	        ]),
-	        markdownText: function (){
+            ...mapState([
+                'question',
+            ]),
+            markdownText: function () {
                 //转换markDown格式
-	        	let converter = new showdown.Converter();  
-	            return converter.makeHtml(this.question.detail);  
-	        }
+                let converter = new showdown.Converter();
+                return converter.makeHtml(this.question.detail);
+            }
         },
-        methods: {
-            
-        }
+        methods: {}
     }
 </script>
-  
+
 <style lang="scss" scoped>
     @import 'src/style/mixin';
-  
-    .detail_page{
+
+    .detail_page {
         position: fixed;
         top: 0;
         left: 0;
@@ -60,11 +56,13 @@
         background-color: #fff;
         z-index: 202;
         padding-top: 1.95rem;
-        p, span{
-            font-family: Helvetica Neue,Tahoma,Arial;
+
+        p, span {
+            font-family: Helvetica Neue, Tahoma, Arial;
         }
     }
-    .scroll_container{
+
+    .scroll_container {
         position: fixed;
         top: 0;
         left: 0;
@@ -73,9 +71,10 @@
         padding-top: 1.95rem;
         overflow-y: auto;
     }
-    .markdown{
-    	font-size: .65rem;
-    	padding: 0 .7rem;
+
+    .markdown {
+        font-size: .65rem;
+        padding: 0 .7rem;
         color: #666;
         padding-bottom: 2rem;
     }
