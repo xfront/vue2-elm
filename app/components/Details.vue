@@ -6,7 +6,7 @@
             <StackLayout col="0" row="0" backgroundColor="#f8f8f8">
                 <GridLayout id="detail-page-background" columns="*" rows="auto,*,auto" height="200">
                     <GridLayout columns="auto,*,auto" rows="auto" col="0" row="0">
-                        <Image col="0" row="0" marginLeft="20" marginTop="10" height="25" width="35" @tap="$router.back()"
+                        <Image col="0" row="0" marginLeft="20" marginTop="10" height="25" width="35" @tap="$navigateBack()"
                                src="~/assets/images/shape5@3x.png"></Image>
                         <Button col="2" row="0" class="btn btn-rounded-sm" padding="5" textTransform="none" backgroundColor="#FFFFFF"
                                 color="#3b75ff" text="Make a Sponsor" fontSize="12" height="25"></Button>

@@ -1,6 +1,5 @@
 <template>
-    <Page class="page">
-        <ActionBar title="Split View"></ActionBar>
+    <Page class="page" actionBarHidden="true" backgroundSpanUnderStatusBar="true">
 
         <!-- The [columns] bit here makes this app a two-column layout on tablets, and a one-column layout on phones -->
         <GridLayout columns="*, 2*">
